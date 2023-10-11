@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Menu</h2>
+    <ul class="list-group">
+        {% for item in menu %}
+        <li class="list-group-item">
+            <strong>{{ item.name }}</strong> - {{ item.description }} - ${{ item.price }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

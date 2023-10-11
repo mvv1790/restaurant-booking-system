@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Booking for Table #{{ table.id }}</h2>
+    <form action="{% url 'complete_booking' table.id %}" method="post">
+        {% csrf_token %}
+        <!-- Date/time picker input -->
+        <div class="form-group">
+            <label>Date & Time:</label>
+            <input type="text" class="form-control" id="datetimepicker" name="booking_datetime">
+        </div>
+
+        <!-- Guest count input -->
+        <div class="form-group">
+            <label>Number of Guests:</label>
+            <input type="number" class="form-control" name="guest_count">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Complete Booking</button>
+    </form>
+</div>
+{% endblock %}
