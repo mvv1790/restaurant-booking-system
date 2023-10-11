@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Available Tables</h2>
+    <div class="row">
+        <!-- Iterate over available tables -->
+        {% for table in tables %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Table #{{ table.id }}</h5>
+                    <p class="card-text">Seats: {{ table.seats }}</p>
+                    <a href="{% url 'book_table' table.id %}" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
