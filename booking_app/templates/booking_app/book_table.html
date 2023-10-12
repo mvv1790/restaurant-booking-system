@@ -2,9 +2,28 @@
 
 {% block content %}
 <div class="container mt-5">
+
+    <!-- Displaying available tables -->
+    <div class="mb-5">
+        <h2>Available Tables</h2>
+        <ul class="list-group">
+            {% for table in tables %}
+            <li class="list-group-item">
+                Table #{{ table.id }} | Capacity: {{ table.capacity }} guests
+            </li>
+            {% empty %}
+            <li class="list-group-item">
+                No tables available.
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Booking form -->
     <h2>Booking for Table #{{ table.id }}</h2>
     <form action="{% url 'complete_booking' table.id %}" method="post">
         {% csrf_token %}
+        
         <!-- Date/time picker input -->
         <div class="form-group">
             <label>Date & Time:</label>
@@ -20,4 +39,11 @@
         <button type="submit" class="btn btn-primary">Complete Booking</button>
     </form>
 </div>
+
+<!-- You can also add JavaScript for datetime picker functionality here -->
+<script>
+    $(function() {
+        $('#datetimepicker').datetimepicker();  // Assuming you're using a plugin like 'eonasdan-bootstrap-datetimepicker'
+    });
+</script>
 {% endblock %}

@@ -2,20 +2,25 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2>Available Tables</h2>
+    <h2 class="mb-4">Available Tables</h2>
     <div class="row">
         <!-- Iterate over available tables -->
         {% for table in tables %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light h-100">
+                <div class="card-body text-center">
                     <h5 class="card-title">Table #{{ table.id }}</h5>
                     <p class="card-text">Seats: {{ table.seats }}</p>
-                    <a href="{% url 'book_table' table.id %}" class="btn btn-primary">Book Now</a>
+                    <a href="{% url 'book_table' table.id %}" class="btn btn-primary mt-3">Book Now</a>
                 </div>
             </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No tables available.</p>
         </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+
