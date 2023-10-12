@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Restaurant Introduction -->
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to [Restaurant Name]!</h1>
+        <p class="lead">Experience the finest dining with us. Discover our exquisite menu and book a table to enjoy a memorable meal.</p>
+        <hr class="my-4">
+        <p>Ready to reserve a table? Click below to begin.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'list_tables' %}" role="button">Book Now</a>
+    </div>
+
+    <!-- Glimpse of the Menu -->
+    <h2>Featured Dishes</h2>
+    <div class="row">
+        <!-- Placeholder for dishes; you can replace this with a loop if you have menu data available -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'path_to_image_1.jpg' %}" class="card-img-top" alt="Dish Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Dish Name 1</h5>
+                    <p class="card-text">Short description of the dish.</p>
+                </div>
+            </div>
+        </div>
+        <!-- ... Repeat for other dishes ... -->
+    </div>
+</div>
+{% endblock %}
