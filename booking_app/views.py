@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Table, Booking
 from .forms import BookingForm
+from .models import MenuItem
 from django.shortcuts import get_object_or_404
 
 
@@ -16,6 +17,16 @@ def list_tables(request):
 def book_table(request):
     # Placeholder logic for now
     return render(request, 'booking_app/book_table.html')
+
+
+def general_menu(request):
+    menu_items = MenuItem.objects.all()
+
+    context = {
+        'menu': menu_items
+    }
+
+    return render(request, 'general_menu.html', context)
 
 
 def view_menu(request, table_id):
