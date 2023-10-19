@@ -26,7 +26,7 @@ def general_menu(request):
         'menu': menu_items
     }
 
-    return render(request, 'general_menu.html', context)
+    return render(request, 'booking_app/general_menu.html', context)
 
 
 def view_menu(request, table_id):
