@@ -2,22 +2,21 @@
 
 {% load static %}
 
-
 {% block content %}
 <div class="container mt-5">
     <!-- Restaurant Introduction -->
-    <div class="jumbotron">
+    <div class="jumbotron" style="background: url('assets/imgs/asparagus.jpg') no-repeat center center; background-size: cover; color: none; height: 500px;">
         <h1 class="display-4">Welcome to [Restaurant Name]!</h1>
-        <p class="lead">Experience the finest dining with us. Discover our exquisite menu and book a table to enjoy a memorable meal.</p>
+        <p class="lead">Experience the finest vegan dining with us. Discover our exquisite green menu and book a table to enjoy a memorable vegan meal.</p>
         <hr class="my-4">
         <p>Ready to reserve a table? Click below to begin.</p>
-        <a class="btn btn-primary btn-lg" href="{% url 'list_tables' %}" role="button">Book Now</a>
+        <a class="btn btn-success btn-lg" href="{% url 'list_tables' %}" role="button">Book Now</a>  <!-- Green color for button -->
     </div>
 
     <!-- Glimpse of the Menu -->
-    <h2>Featured Dishes</h2>
+    <h2>Featured Dishes <img src="{% static 'vegan_badge.png' %}" alt="Vegan Friendly" style="width: 30px;"></h2> <!-- Vegan icon -->
     <div class="row">
-        <!-- Placeholder for dishes; you can replace this with a loop if you have menu data available -->
+        <!-- Placeholder for dishes; -->
         <div class="col-md-4">
             <div class="card mb-4">
                 <img src="{% static 'path_to_image_1.jpg' %}" class="card-img-top" alt="Dish Image 1">
@@ -31,3 +30,4 @@
     </div>
 </div>
 {% endblock %}
+
