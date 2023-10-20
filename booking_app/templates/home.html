@@ -5,9 +5,9 @@
 {% block content %}
 <div class="container mt-5">
     <!-- Restaurant Introduction -->
-    <div> <img src="{% static '/assets/asparagus2.jpg' %}" alt="Vegan Friendly" style="width: 30px;"></div>
-    <div class="jumbotron" style="background: url('assets/asparagus.jpg') no-repeat center center; background-size: cover; color: none; height: 500px;">
-        <h1 class="display-4">Welcome to [Restaurant Name]!</h1>
+    <div> <img src="{% static '/assets/imgs/imgage_goes_here.jpg' %}" alt="Vegan Friendly" style="width: 300px;"></div>
+    <div class="jumbotron" style="background: url('{% static "assets/imgs/romanseco.jpg" %}') no-repeat center center; background-size: cover; color: none; height: 500px;">
+        <h1 class="display-4">Welcome to GreenTable!</h1>
         <p class="lead">Experience the finest vegan dining with us. Discover our exquisite green menu and book a table to enjoy a memorable vegan meal.</p>
         <hr class="my-4">
         <p>Ready to reserve a table? Click below to begin.</p>
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Glimpse of the Menu -->
-    <h2>Featured Dishes <img src="{% static '/assets/asparagus2' %}" alt="Vegan Friendly" style="width: 30px;"></h2> <!-- Vegan icon -->
+    <h2>Featured Dishes <img src="{% static 'imgage_goes_here.jpg' %}" alt="Vegan Friendly" style="width: 30px;"></h2> <!-- Vegan icon -->
     <div class="row">
         <!-- Placeholder for dishes; -->
         <div class="col-md-4">
