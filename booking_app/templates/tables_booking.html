@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Available Tables</h2>
+    <div class="row">
+        <!-- Iterate over available tables -->
+        {% for table in tables %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Table #{{ table.id }}</h5>
+                    <p class="card-text">Seats: {{ table.capacity }}</p>
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#bookModal{{ table.id }}">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="bookModal{{ table.id }}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Booking for Table #{{ table.id }}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Booking form -->
+                        <form action="{% url 'complete_booking' table.id %}" method="post">
+                            {% csrf_token %}
+                            
+                            <!-- Date/time picker input -->
+                            <div class="form-group">
+                                <label>Date & Time:</label>
+                                <input type="text" class="form-control" id="datetimepicker{{ table.id }}" name="booking_datetime">
+                            </div>
+
+                            <!-- Guest count input -->
+                            <div class="form-group">
+                                <label>Number of Guests:</label>
+                                <input type="number" class="form-control" name="guest_count">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Complete Booking</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">No tables available.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript for datetime picker functionality -->
+<script>
+    $(function() {
+        $('[id^="datetimepicker"]').datetimepicker();  // For every datetime picker in each modal
+    });
+</script>
+{% endblock %}
